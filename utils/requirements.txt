@@ -1,0 +1,7 @@
+numpy>=1.26,<3
+opencv-python>=4.8,<5
+pillow>=10,<12
+scipy>=1.11,<2
+torch>=2.2,<2.7
+huggingface_hub>=0.20,<1
+matplotlib>=3.7,<4
