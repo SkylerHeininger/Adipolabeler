@@ -280,6 +280,25 @@ def resize_image(image, window_size, stride, div_mult=2.25, max_div_mult=2.0):
     return resized_image, (new_width, new_height), ratio
 
 
+def resize_image_to_dim(image, size):
+    """
+    Will scale the image to the window_size + stride.
+    """
+
+    # Get image dimensions
+    image_height, image_width = image.shape[:2]
+
+    resized_image = cv2.resize(image, (size, size))
+
+    # Calculate the resizing ratio for sphericity calculation
+    original_area = image_height * image_width
+    resized_area = size * size
+    ratio = original_area / resized_area
+
+    # Return the resized image and associated metadata
+    return resized_image, (size, size), ratio
+
+
 def calculate_resize_dimension(original_size, window_size, stride):
     current_size = window_size
     while current_size < original_size:
@@ -297,6 +316,7 @@ def load_image(image_path):
 
 
 def save_image(image, image_path):
+    os.makedirs(os.path.dirname(image_path), exist_ok=True)
     cv2.imwrite(image_path, image)
 
 

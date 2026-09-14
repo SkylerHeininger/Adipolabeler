@@ -1,1 +1,16 @@
-/utils/unet_ft_adipocytes.pth
+auto_label/
+temp/
+
+utils/user_settings.json
+utils/.requirements_hash
+utils/unet_ft_adipocytes.pth
+utils/timers.txt
+utils/resource_usage_log.csv
+
+*.class
+
+__pycache__/
+*.pyc
+
+.DS_Store
+Thumbs.db
